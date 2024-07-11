@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bupa_Dental_Care_Test_MOT_History", "Bupa_Dental_Care_Test_MOT_History\Bupa_Dental_Care_Test_MOT_History.csproj", "{7F08A002-DC5D-4D90-8480-32C4D52A657D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOT_History_Unit_Testing", "MOT_History_Unit_Testing\MOT_History_Unit_Testing.csproj", "{3B41E007-38CD-4FB5-A461-A909B5B501BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7F08A002-DC5D-4D90-8480-32C4D52A657D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7F08A002-DC5D-4D90-8480-32C4D52A657D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7F08A002-DC5D-4D90-8480-32C4D52A657D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7F08A002-DC5D-4D90-8480-32C4D52A657D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B41E007-38CD-4FB5-A461-A909B5B501BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B41E007-38CD-4FB5-A461-A909B5B501BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B41E007-38CD-4FB5-A461-A909B5B501BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B41E007-38CD-4FB5-A461-A909B5B501BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {62BB4573-B70C-4897-8665-4AEB5F99AA4B}
+	EndGlobalSection
+EndGlobal

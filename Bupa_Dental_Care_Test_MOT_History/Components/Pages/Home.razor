@@ -1,0 +1,84 @@
+﻿@page "/"
+@using System.Net.Http
+@using Newtonsoft.Json
+@using System
+@inject HttpClient httpClient
+@using Bupa_Dental_Care_Test_MOT_History.Models 
+@inject Bupa_Dental_Care_Test_MOT_History.Services.MOT_History_API_Service api_service
+
+<div class="container mt-4">
+    <h3 class="text-center mb-4">Vehicle MOT Information</h3>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="registrationNumber">Enter Registration Number:</label>
+                        <input type="text" id="registrationNumber" class="form-control" @bind="regNum" />
+                    </div>
+                    <button class="btn btn-primary" @onclick="FetchMOTInformation">Fetch MOT Information</button>
+                </div>
+            </div>
+
+            @if (vehicleMOTInfo != null)
+            {
+                @if (!string.IsNullOrEmpty(vehicleMOTInfo.ErrorMessage))
+                {
+                    <div class="alert alert-danger mt-4">
+                        <p>@vehicleMOTInfo.ErrorMessage</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="card mt-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Vehicle Information</h4>
+                            <p><strong>Make:</strong> @vehicleMOTInfo.Make</p>
+                            <p><strong>Model:</strong> @vehicleMOTInfo.Model</p>
+                            <p><strong>Colour:</strong> @vehicleMOTInfo.Colour</p>
+                            <p><strong>Mileage:</strong> @vehicleMOTInfo.Mileage @vehicleMOTInfo.Odometer_Unit</p>
+                            <p><strong>MOT Expiry Date:</strong> @vehicleMOTInfo.ExpiryDate</p>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</div>
+
+
+
+
+@code {
+    private string regNum;
+    private MOTHistoryViewModel vehicleMOTInfo;
+
+    private async Task FetchMOTInformation()
+    {
+        if (!String.IsNullOrEmpty(regNum))
+        {
+            try
+            {
+                vehicleMOTInfo = await api_service.GetVehicleDetails(regNum);
+            }
+            catch (Exception ex)
+            {
+                vehicleMOTInfo = new MOTHistoryViewModel
+                    {
+                        ErrorMessage = "An error occured while fetching MOT details"
+                    };
+                    Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+        else
+        {
+            vehicleMOTInfo = new MOTHistoryViewModel
+            {
+                ErrorMessage = "Textbox cannot be empty!" // although when it's empty it seems to return toyota prius (so many questions)
+            };
+        }
+    }
+
+   
+}
